@@ -14,7 +14,9 @@
     "dev": "nodemon index.js",
     "lint": "eslint --ext=js graphql models pages public index.js",
     "test": "jest",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "start": "webpack-dev-server --progress --profile --colors",
+    "build": "webpack"
   },
   "dependencies": {
     "express": "^4.15.4",
@@ -23,7 +25,9 @@
     "graphql-date": "^1.0.3",
     "graphql-tools": "^1.2.1",
     "sequelize": "^4.7.5",
-    "sqlite3": "^3.1.9"
+    "sqlite3": "^3.1.9",
+    "normalize.css": "^7.0.0",
+    "postcss-cssnext": "^3.0.2"
   },
   "devDependencies": {
     "eslint": "^4.14.0",
@@ -32,6 +36,24 @@
     "husky": "^0.14.3",
     "jest": "^22.0.6",
     "nodemon": "^1.12.5",
-    "semistandard": "^11.0.0"
+    "semistandard": "^11.0.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "css-loader": "^0.28.8",
+    "file-loader": "^1.1.6",
+    "handlebars": "^4.0.11",
+    "handlebars-loader": "^1.6.0",
+    "html-webpack-plugin": "^2.30.1",
+    "postcss-calc": "^6.0.1",
+    "postcss-csscomb": "^1.0.2",
+    "postcss-import": "^11.0.0",
+    "postcss-loader": "^2.0.10",
+    "postcss-short": "^4.1.0",
+    "postcss-variables-loader": "^5.0.1",
+    "precss": "^2.0.0",
+    "style-loader": "^0.19.1",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.5.6",
+    "webpack-dev-server": "^2.10.1"
   }
 }
