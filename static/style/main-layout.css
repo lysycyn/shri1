@@ -2,6 +2,7 @@
 
 .main-layout {
   padding-top: 47px;
+
   font-family: $font;
 
   @media screen and (max-width: $max-sm) {
@@ -10,46 +11,54 @@
 }
 
   .main-layout__top {
-    height: 46px;
     position: fixed;
     z-index: 1;
     top: 71px;
+
     display: table;
-    width: 100%;
+
     box-sizing: border-box;
+    width: 100%;
+    height: 46px;
 
     border-bottom: 1px solid $color-grey;
     background: $color-white;
 
     @media screen and (max-width: $max-sm) {
-      height: 56px;
       z-index: 1;
       top: 63px;
+
       display: block;
+
+      height: 56px;
     }
   }
 
   .main-layout__day-picker {
       display: table-cell;
+
       min-width: 245px;
 
 
       @media screen and (max-width: $max-sm) {
         display: block;
+
         vertical-align: middle; 
       }
   }
 
   .main-layout__timeline {
       display: table-cell;
-      margin-left: 180px;
-      width: 100%;
       display: none;
+
+      width: 100%;
+      margin-left: 180px;
 
       @media screen and (min-width: $min-lg) {
         display: table-cell;
-        margin-left: 0;
+
         width: 100%;
+        margin-left: 0;
 
         vertical-align: middle;
       }

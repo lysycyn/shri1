@@ -2,24 +2,27 @@
 
 .btn {
   display: inline-block;
+}
 
-  &:hover {
-    cursor: pointer;
-  }
+btn:hover {
+  cursor: pointer;
 }
 
   .btn__icon {
-    opacity: 0.2;
     transition: opacity $transition;
+
+    opacity: 0.2;
   }
 
   .btn:hover .btn__icon {
-    opacity: 1;
     transition: opacity $transition;
+
+    opacity: 1;
   }
 
   .btn_round {
     border-radius: 100%;
+
     size: 24px;
 
     @media screen and (max-width: $max-sm) {
@@ -29,13 +32,17 @@
 
   .btn_primary {
     padding: 10px 16px;
+
+    letter-spacing: 0;
+
+    border-radius: 4px;
+
     font-size: 13px;
     line-height: 16px;
-    border-radius: 4px;
-    letter-spacing: 0;
 
     @media screen and (max-width: $max-sm) {
       padding: 13px 24px;
+
       font-size: 15px;
       line-height: 18px;
     }
@@ -48,13 +55,15 @@
   }
 
   .btn_blue {
-    background-color: $color-blue;
-    color: $color-white;
     transition: background $transition;
 
+    color: $color-white;
+    background-color: $color-blue;
+
     &:hover {
-      background-color: $color-blue-hover;
       transition: background $transition;
+
+      background-color: $color-blue-hover;
     }
 
     &:active {
@@ -63,13 +72,15 @@
   }
 
   .btn_grey {
-    background-color: $color-grey;
-    color: black;
     transition: background $transition;
 
+    color: black;
+    background-color: $color-grey;
+
     &:hover {
-      background-color: $color-grey-hover;
       transition: background $transition;
+
+      background-color: $color-grey-hover;
     }
 
     &:active {

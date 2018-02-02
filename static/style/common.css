@@ -1,8 +1,9 @@
 @import 'var.css';
 
 a, a:hover, a:focus {
-  color: black;
   text-decoration: none;
+
+  color: black;
 }
 
 body {
@@ -14,10 +15,11 @@ body {
 }
 
 button {
-  background: transparent;
+  cursor: pointer;
+
   border: none;
   outline: none;
-  cursor: pointer;
+  background: transparent;
 
   &:hover,
   &:active,
@@ -31,7 +33,8 @@ img {
 }
 
 .clearfix::after {
-  content: '';
   display: block;
   clear: both;
+
+  content: '';
 }

@@ -2,10 +2,13 @@
 
 .icon {
   display: inline-block;
-  background-size: cover;
+
+  vertical-align: middle;
+
   background-repeat: no-repeat;
   background-position: center;
-  vertical-align: middle;
+  background-size: cover;
+
   size: 12px;
 
   @media screen and (min-width: $min-lg) {
@@ -26,20 +29,23 @@
 }
 
 .icon_success {
-  size: 40px 48px;
   background-image: url('../assets/icon_success.svg');
   background-size: 40px 48px;
+
+  size: 40px 48px;
 }
 
 .icon_cancel {
-  size: 40px 48px;
   background-image: url('../assets/icon_cancel.svg');
   background-size: 40px 48px;
+
+  size: 40px 48px;
 }
 
 .icon_calendar {
-  size: 12px;
   background-image: url('../assets/icon_calendar.svg');
+
+  size: 12px;
 }
 
 .icon_next {
@@ -48,7 +54,8 @@
 }
 
 .icon_prev {
+  transform: rotate(180deg);
+
   background-image: url('../assets/icon_arrow.svg');
   background-size: 7px 11px;
-  transform: rotate(180deg);
 }

@@ -1,9 +1,12 @@
 @import 'var.css';
 
 .calendar {
-  display: table;
-  width: 100%;
   position: relative;
+
+  display: table;
+
+  width: 100%;
+
   background-color: $color-grey-bg;
 
   @media screen and (max-width: $max-sm) {
@@ -16,15 +19,18 @@
   }
 
   .calendar__room {
-    background: $color-white;
     display: table-cell;
+
+    box-sizing: border-box;
     min-width: 245px;
     height: 52px;
     padding-left: 25px;
-    border-right: 1px solid $color-grey;
-    vertical-align: middle;
-    box-sizing: border-box;
+
     cursor: pointer;
+    vertical-align: middle;
+
+    border-right: 1px solid $color-grey;
+    background: $color-white;
 
     @media screen and (max-width: $max-sm) {
       min-width: 181px;
@@ -33,25 +39,28 @@
   }
 
   .calendar__room:hover .calendar__name {
-    color: $color-blue-text-hover;
     transition: $transition;
+
+    color: $color-blue-text-hover;
   }
 
   .calendar__room:active .calendar__name {
-    color: $color-blue-text-pressed;
     transition: $transition;
+
+    color: $color-blue-text-pressed;
   }
 
     .calendar__room_disabled,
     .calendar__room_disabled:hover .calendar__name,
-    .calendar__room_disabled:active .calendar__name  {
-      color: $color-grey-dark;
+    .calendar__room_disabled:active .calendar__name {
       cursor: default;
+
+      color: $color-grey-dark;
     }
 
     .calendar__row_floor .calendar__room {
-      vertical-align: bottom;
       cursor: default;
+      vertical-align: bottom;
     }
 
     .calendar__row_header {
@@ -62,26 +71,32 @@
 
 
   .calendar__timeline {
-      display: table-cell;
-      width: 100%;
       position: relative;
+
+      display: table-cell;
+
+      width: 100%;
       height: 100%;
-      background: $color-white;
+
       border-top: 12px solid $color-grey-bg;
       border-bottom: 12px solid $color-grey-bg;
+      background: $color-white;
   }
 
-      .calendar__row_floor .calendar__timeline{
+      .calendar__row_floor .calendar__timeline {
           background: $color-grey-bg;
       }
 
       .calendar__row_floor .calendar__room {
         height: 29px;
-        font-size: 11px;
-        font-weight: 700;
+
         letter-spacing: 0.4px;
         text-transform: uppercase;
+
         color: $color-grey-dark;
+
+        font-size: 11px;
+        font-weight: 700;
 
         @media screen and (max-width: $max-sm) {
           height: 45px;
@@ -97,10 +112,11 @@
       }
 
   .calendar__header {
-      background: $color-white;
-      padding-left: 254px;
       height: 44px;
+      padding-left: 254px;
+
       border-bottom: 1px solid $color-grey;
+      background: $color-white;
 
       @media screen and (max-width: $max-sm) {
         height: 32px;
@@ -108,11 +124,13 @@
   }
 
   .calendar__name {
-      font-weight: medium;
-      font-size: 15px;
-      line-height: 17px;
       margin-bottom: 2px;
+
       transition: $transition;
+
+      font-size: 15px;
+      font-weight: medium;
+      line-height: 17px;
   }
 
       .calendar__room_active .calendar__name {
@@ -125,38 +143,47 @@
   }
 
   .calendar__new {
-    height: 100%;
-    display: inline-block;
     position: absolute;
-    background: #1D54FE;
+
+    display: inline-block;
+
     min-width: 6.25%;
-    color: $color-white;
-    opacity: 1;
-    border-radius: 2px;
+    height: 100%;
+
     cursor: pointer;
     transition: $transition;
+
+    opacity: 1;
+    color: $color-white;
+    border-radius: 2px;
+    background: #1d54fe;
   }
 
   .calendar__new:active {
-    background: #1D00FE;
     transition: $transition;
+
+    background: #1d00fe;
   }
 
     .calendar__new:before {
-        content: "+";
+        position: absolute;
         top: 50%;
         left: 50%;
+
+        content: '+';
         transform: translate(-50%, -50%);
-        position: absolute;
     }
 
   .calendar__meetup {
-      border-radius: 2px;
-      background: #D5DFE9;
-      height: 100%;
-      display: inline-block;
-      min-width: 3.125%;
       position: absolute;
+
+      display: inline-block;
+
+      min-width: 3.125%;
+      height: 100%;
+
+      border-radius: 2px;
+      background: #d5dfe9;
   }
 
       .calendar__meetup:nth-child(2n) {

@@ -5,11 +5,13 @@
 }
 
 .short-participant__img {
-  border-radius: 50%;
   display: inline-block;
   float: left;
-  size: 24px;
+
+  border-radius: 50%;
   background-color: yellow;
+
+  size: 24px;
 }
 
 .shor-participant__name {

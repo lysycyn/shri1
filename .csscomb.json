@@ -1,4 +1,7 @@
 {
+  "syntax": {
+    ".css": "scss"
+  },
   "always-semicolon": true,
   "color-case": "lower",
   "color-shorthand": false,
@@ -10,6 +13,7 @@
   "space-before-combinator": " ",
   "space-after-combinator": " ",
   "space-before-opening-brace": " ",
+  "space-before-closing-brace": "\n",
   "space-before-selector-delimiter": "",
   "unitless-zero": true,
   "vendor-prefix-align": true,

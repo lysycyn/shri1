@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HOST = process.env.HOST || 'localhost';
@@ -12,12 +11,12 @@ const devFlagPlugin = new webpack.DefinePlugin({
 
 module.exports = {
   entry: {
-    'index': './static/script/index.js',
-    'main': './static/script/main.js',
-    'new_meeting': './static/script/new_meeting.js',
-    'edit_meeting': './static/script/edit_meeting.js',
-    'modal_success': './static/script/modal_success.js',
-    'modal_cancel': './static/script/modal_cancel.js',
+    'index': './static/entries/index.js',
+    'main': './static/entries/main.js',
+    'new_meeting': './static/entries/new_meeting.js',
+    'edit_meeting': './static/entries/edit_meeting.js',
+    'modal_success': './static/entries/modal_success.js',
+    'modal_cancel': './static/entries/modal_cancel.js',
   },
   output: {
     path: path.resolve('./build'),

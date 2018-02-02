@@ -3,12 +3,14 @@
 .header {
   position: fixed;
   z-index: 1;
-  padding: 15px 16px 11px;
-  width: 100%;
   top: 0;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px 16px 11px;
+
   border-bottom: 1px solid $color-grey;
   background-color: white;
-  box-sizing: border-box;
 
   @media screen and (min-width: $min-lg) {
     padding: 16px 25px;
@@ -21,8 +23,9 @@
 
 .header__table {
   width: 100%;
-  border-collapse: collapse;
+
   border: none;
+  border-collapse: collapse;
 
   td {
     width: 50%;
@@ -35,6 +38,7 @@
 
 .header__btn {
   float: right;
+
   min-height: 34px;
 
   @media screen and (min-width: $min-lg) {
