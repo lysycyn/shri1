@@ -1,10 +1,11 @@
 const Controller = require('./controller');
 
-class DatePickerController extends Controller {
-    constructor(datePickerModel) {
-        super();
+const DatePickerModel = require('../models/date-picker');
+const DatePickerView = require('../views/day-picker/day-picker');
 
-        this._datePickerModel = datePickerModel;
+class DatePickerController extends Controller {
+    constructor(container, data) {
+        super(DatePickerModel, DatePickerView, container, data);
     }
 }
 

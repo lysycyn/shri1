@@ -1,0 +1,23 @@
+<div class="calendar">
+    <div class="calendar__row calendar__row_header">
+        <div class="calendar__header js-calendar-header">
+            {{test}}
+        </div>
+    </div>
+
+    {{#rooms}}
+        {{#room}}
+            <div class="calendar__row">
+                <div class="calendar__room">
+                    <div class="calendar__name">{{title}}</div>
+                    <div class="calendar__capacity">{{capacity}}</div>
+                </div>
+                <div class="calendar__timeline js-events">
+                    {{#events}}
+                        <div class="calendar__meetup"></div>
+                    {{/events}}
+                </div>
+            </div>
+        {{/room}}
+    {{/rooms}}
+  </div>

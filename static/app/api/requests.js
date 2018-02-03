@@ -1,4 +1,7 @@
 module.exports = {
+
+    /** Events request */
+
     events: `{
         events {
             id
@@ -8,13 +11,20 @@ module.exports = {
             users {
                 id
                 login
+                homeFloor
+                avatarUrl
             }
             room {
                 id
+                title
+                capacity
                 floor
             }
         }
     }`,
+
+    /* Rooms request */
+
     rooms: `{
         rooms {
             id
@@ -22,5 +32,5 @@ module.exports = {
             capacity
             floor
         }
-    }`
-}
+    }`,
+};

@@ -1,10 +1,11 @@
 const Controller = require('./controller');
 
-class TimelineController extends Controller {
-    constructor(timelineModel) {
-        super();
+const TimelineModel = require('../models/timeline');
+const TimelineView = require('../views/timeline/timeline');
 
-        this._timelineModel = timelineModel;
+class TimelineController extends Controller {
+    constructor(container, data) {
+        super(TimelineModel, TimelineView, container, data);
     }
 }
 

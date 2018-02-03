@@ -6,12 +6,13 @@ const Mediator = require('./mediator');
 
     Promise.all([
         api.fetchRooms(),
-        api.fetchEvents()
+        api.fetchEvents(),
     ]).then((results) => {
-        const appData = results.reduce((prev, curr) => {
-            return Object.assign(prev, curr);
-        }, {});
+        const appData = results.reduce(
+            (prev, curr) => Object.assign(prev, curr),
+            {},
+        );
 
-        const mediator = new Mediator(appData);
+        return new Mediator(appData);
     });
 })();
