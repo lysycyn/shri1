@@ -1,11 +1,9 @@
 const path = require('path');
-
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || '3000';
-
 
 const devFlagPlugin = new webpack.DefinePlugin({
     __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false')),

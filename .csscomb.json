@@ -8,6 +8,7 @@
   "element-case": "lower",
   "leading-zero": true,
   "quotes": "single",
+  "strip-spaces": true,
   "space-before-colon": "",
   "space-after-colon": " ",
   "space-before-combinator": " ",

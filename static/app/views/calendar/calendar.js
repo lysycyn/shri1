@@ -13,6 +13,8 @@ class CalendarView extends View {
      */
     constructor(container, model) {
         super(template, container, model);
+
+        console.log('MODEL:', model);
     }
 }
 
