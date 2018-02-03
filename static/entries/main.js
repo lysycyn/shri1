@@ -10,3 +10,5 @@ require('./../style/calendar.css');
 require('./../style/icon.css');
 require('./../style/tooltip.css');
 require('./../style/short-participant.css');
+
+require('./../app/index.js');
