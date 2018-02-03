@@ -8,13 +8,13 @@ const resolvers = require('./resolvers');
 const router = express.Router();
 
 const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers: resolvers(),
+    typeDefs,
+    resolvers: resolvers(),
 });
 
 router.use(graphqlHTTP({
-  schema,
-  graphiql: true,
+    schema,
+    graphiql: true,
 }));
 
 module.exports = router;

@@ -1,5 +1,5 @@
 module.exports.index = (req, res) => {
-  res.send(`
+    res.send(`
     <html>
       <head>
         <title>Shri 2018</title>

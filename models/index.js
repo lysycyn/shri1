@@ -5,12 +5,12 @@ const scheme = require('./scheme');
 const { Op } = Sequelize;
 
 const sequelize = new Sequelize(null, null, null, {
-  dialect: 'sqlite',
-  storage: 'db.sqlite3',
-  operatorsAliases: {
-    $and: Op.and,
-  },
-  logging: false,
+    dialect: 'sqlite',
+    storage: 'db.sqlite3',
+    operatorsAliases: {
+        $and: Op.and,
+    },
+    logging: false,
 });
 
 scheme(sequelize);
