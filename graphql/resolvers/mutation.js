@@ -32,10 +32,10 @@ module.exports = {
     },
 
     // Event
-    createEvent(root, { input, usersIds, roomId }) {
+    createEvent(root, { input, usersIds, room }) {
         return models.Event.create(input)
             .then((event) => {
-                event.setRoom(roomId);
+                event.setRoom(room);
 
                 return event.setUsers(usersIds)
                     .then(() => event);
@@ -55,9 +55,9 @@ module.exports = {
             });
     },
 
-    changeEventRoom(root, { id, roomId }) {
+    changeEventRoom(root, { id, room }) {
         return models.Event.findById(id)
-            .then(event => event.setRoom(roomId));
+            .then(event => event.setRoom(room));
     },
 
     removeEvent(root, { id }) {
