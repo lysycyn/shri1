@@ -4,6 +4,8 @@
     "browser": true
   },
   "rules": {
+    "no-nested-ternary": 0,
+    "max-len": ["error", { "code": 120 }],
     "no-underscore-dangle": 0,
     "no-console": 0,
     "indent": ["error", 4],
