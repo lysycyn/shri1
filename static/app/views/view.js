@@ -12,12 +12,26 @@ class View {
         this._dispatcher = dispatcher;
 
         this._template = template;
-        this._model = model;
         this._container = container;
+
+        this.update(model);
+    }
+
+    update(model) {
+        this._model = model;
+    }
+
+    /**
+     * Abstract Interface. Will be implemented in subclasses
+     */
+    _initListeners() {
+
     }
 
     render() {
         this._container.innerHTML = this._template(this._model);
+
+        this._initListeners();
     }
 }
 

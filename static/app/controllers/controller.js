@@ -10,10 +10,11 @@ class Controller {
         this._view = new ViewClass(this._container, this._model.data);
     }
 
-    update(data) {
-        this._model.update(data);
+    updateViewByModel() {
         this._view.update(this._model.data);
+    }
 
+    renderView() {
         this._view.render();
     }
 }
