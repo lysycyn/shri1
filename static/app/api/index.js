@@ -1,4 +1,5 @@
 const REQUESTS = require('./requests.js');
+
 const HOST = 'http://localhost:3000';
 
 class API {

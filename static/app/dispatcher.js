@@ -1,9 +1,7 @@
-let {Mediator} = require('mediator-js/lib/mediator');
+const { Mediator } = require('mediator-js/lib/mediator');
 
-let dispatcher = new Mediator();
+const dispatcher = new Mediator();
 
-let dispatcherSingleton = () => {
-    return dispatcher;
-}
+const dispatcherSingleton = () => dispatcher;
 
 module.exports = dispatcherSingleton();
