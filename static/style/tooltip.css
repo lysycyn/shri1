@@ -4,7 +4,9 @@
   position: absolute;
   z-index: 2;
 
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: $transition all ease;
 
   width: 100%;
   max-width: 338px;
@@ -24,13 +26,15 @@
   }
 }
 
+  .tooltip_visible {
+    visibility: visible;
+    opacity: 1;
+    transition: $transition all ease;
+  }
+
 .tooltip__trigger {
     cursor: pointer;
 }
-
-    .tooltip__trigger:hover .tooltip {
-        display: block;
-    }
 
 .tooltip__arrow {
   position: absolute;

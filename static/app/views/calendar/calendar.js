@@ -60,6 +60,12 @@ class CalendarView extends View {
             return roomExtended;
         });
     }
+
+    toggleTooltip() {
+      document.querySelectorAll('.js-tooltip-trigger').addEventListener('click', () => {
+
+      });
+    }
 }
 
 module.exports = CalendarView;
