@@ -16,6 +16,12 @@ class DatePickerView extends View {
     constructor(container, model) {
         super(template, container, model);
 
+        this.update(model);
+    }
+
+    update(model) {
+        super.update(model);
+
         this._model.currentDateText = utils.getDateText(this._model.current, true);
 
         const currentWeekDay = utils.getWeekDayText(this._model.current, true);
@@ -29,11 +35,11 @@ class DatePickerView extends View {
         const nextDayElement = document.querySelector('.js-next-day');
 
         previousDayElement.addEventListener('click', () => {
-            this._dispatcher.trigger('day-picker-view:previous-day');
+            this._dispatcher.trigger('date-picker-view:previous-day');
         });
 
         nextDayElement.addEventListener('click', () => {
-            this._dispatcher.trigger('day-picker-view:next-day');
+            this._dispatcher.trigger('date-picker-view:next-day');
         });
     }
 }

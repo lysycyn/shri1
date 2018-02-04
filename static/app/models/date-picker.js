@@ -8,11 +8,11 @@ class DatePickerModel extends Model {
     }
 
     incrementDay() {
-        this._data.current.setDate(this._data.current.getDate + 1);
+        this._data.current.setDate(this._data.current.getDate() + 1);
     }
 
     decrementDay() {
-        this._data.current.setDate(this._data.current.getDate - 1);
+        this._data.current.setDate(this._data.current.getDate() - 1);
     }
 }
 
