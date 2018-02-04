@@ -23,6 +23,19 @@ class DatePickerView extends View {
 
         this._model.currentWeekDay = closnessText || currentWeekDay;
     }
+
+    _initListeners() {
+        const previousDayElement = document.querySelector('.js-previous-day');
+        const nextDayElement = document.querySelector('.js-next-day');
+
+        previousDayElement.addEventListener('click', () => {
+            this._dispatcher.trigger('day-picker-view:previous-day');
+        });
+
+        nextDayElement.addEventListener('click', () => {
+            this._dispatcher.trigger('day-picker-view:next-day');
+        });
+    }
 }
 
 module.exports = DatePickerView;

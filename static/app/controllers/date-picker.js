@@ -10,12 +10,28 @@ class DatePickerController extends Controller {
         this._view.render();
     }
 
+    initListeners() {
+        this._dispatcher.on('date-picker-view:next', () => {
+            this.nextDay();
+        });
+
+        this._dispatcher.on('date-picker-view:previous', () => {
+            this.previousDay();
+        });
+    }
+
     nextDay() {
         this._model.incrementDay();
+
+        this.updateViewByModel();
+        this.renderView();
     }
 
     previousDay() {
         this._model.decrementDay();
+
+        this.updateViewByModel();
+        this.renderView();
     }
 }
 
