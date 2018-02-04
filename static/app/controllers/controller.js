@@ -13,6 +13,8 @@ class Controller {
     update(data) {
         this._model.update(data);
         this._view.update(this._model.data);
+
+        this._view.render();
     }
 }
 

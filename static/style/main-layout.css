@@ -34,7 +34,7 @@
     }
   }
 
-  .main-layout__day-picker {
+  .main-layout__date-picker {
     display: table-cell;
 
     min-width: 245px;
