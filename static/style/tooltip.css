@@ -17,17 +17,25 @@
   font-family: $font;
 
   @media screen and (min-width: $min-lg) {
-    top: 300px;
-    left: 500px;
-
-    display: block;
+    bottom: -5px;
+    right: 50%;
+    transform: translate(16px, 100%);
+    width: 338px;
   }
 }
+
+.tooltip__trigger {
+    cursor: pointer;
+}
+
+    .tooltip__trigger:hover .tooltip {
+        display: block;
+    }
 
 .tooltip__arrow {
   position: absolute;
   top: -8px;
-  left: 50%;
+  left: 354px;
 
   display: block;
 
@@ -93,8 +101,4 @@
 
   font-size: 13px;
   line-height: 17px;
-
-  &::before {
-    content: 'и';
-  }
 }

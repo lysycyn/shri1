@@ -19,7 +19,16 @@ class CalendarModel extends Model {
                 events: [],
             };
 
-            calendarRow.events = events.filter(x => x.room.id === room.id);
+            calendarRow.events = events
+                .filter(event => event.room.id === room.id)
+                .map((event) => {
+                    const eventExtended = Object.assign(event);
+
+                    eventExtended.dateEnd = new Date(event.dateEnd);
+                    eventExtended.dateStart = new Date(event.dateStart);
+
+                    return event;
+                });
 
             calendar.push(calendarRow);
 
