@@ -6,7 +6,7 @@ const DatePickerController = require('./controllers/date-picker');
 
 const LAYOUT_CONTAINERS = {
     calendar: '.js-layout-body',
-    dayPicker: '.js-layout-day-picker',
+    dayPicker: '.js-layout-date-picker',
     timeline: '.js-layout-timeline',
 };
 
@@ -25,8 +25,8 @@ class Mediator {
             events,
         });
 
-        this._timelineController = new TimelineController(dayPickerEl, {});
-        this._datePickerController = new DatePickerController(timelineEl, {});
+        this._datePickerController = new DatePickerController(dayPickerEl, {});
+        this._timelineController = new TimelineController(timelineEl, {});
 
         this.initListeners();
     }

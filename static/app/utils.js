@@ -9,6 +9,73 @@ module.exports = {
         ];
     },
 
+    getDateClosenessText(date) {
+        const today = new Date();
+        const yesterday = new Date();
+        const tommorow = new Date();
+
+        yesterday.setDate(today.getDate() - 1);
+        tommorow.setDate(today.getDate() + 1);
+
+        const dateString = date.toDateString();
+        const todayString = today.toDateString();
+        const yesterdayString = yesterday.toDateString();
+        const tommorowString = tommorow.toDateString();
+
+        switch (dateString) {
+        case todayString:
+            return 'Сегодня';
+
+        case yesterdayString:
+            return 'Вчера';
+
+        case tommorowString:
+            return 'Завтра';
+
+        default:
+            return undefined;
+        }
+    },
+
+    getWeekDayText(date, short) {
+        const weekdays = [
+            {
+                full: 'воскресенье',
+                short: 'вск',
+            },
+            {
+                full: 'понедельник',
+                short: 'пнд',
+            },
+            {
+                full: 'вторник',
+                short: 'втр',
+            },
+            {
+                full: 'среда',
+                short: 'срд',
+            },
+            {
+                full: 'четверг',
+                short: 'чтв',
+            },
+            {
+                full: 'пятница',
+                short: 'птн',
+            },
+            {
+                full: 'суббота',
+                short: 'сбт',
+            },
+        ];
+
+        if (short) {
+            return `${weekdays[date.getUTCDay()].short}`;
+        }
+
+        return `${weekdays[date.getUTCDay()].full}`;
+    },
+
     getTimeText(date) {
         let hours = date.getHours();
         let minutes = date.getMinutes();
@@ -19,25 +86,65 @@ module.exports = {
         return `${hours}:${minutes}`;
     },
 
-    getDateText(date) {
+    getDateText(date, short) {
         const months = [
-            'января',
-            'февраля',
-            'марта',
-            'апреля',
-            'мая',
-            'июня',
-            'июля',
-            'августа',
-            'сентября',
-            'октября',
-            'ноября',
-            'декабря',
+            {
+                full: 'января',
+                short: 'янв',
+            },
+            {
+                full: 'февраля',
+                short: 'фев',
+            },
+            {
+                full: 'марта',
+                short: 'мар',
+            },
+            {
+                full: 'апреля',
+                short: 'апр',
+            },
+            {
+                full: 'мая',
+                short: 'мая',
+            },
+            {
+                full: 'июня',
+                short: 'июн',
+            },
+            {
+                full: 'июля',
+                short: 'июл',
+            },
+            {
+                full: 'августа',
+                short: 'авг',
+            },
+            {
+                full: 'сентября',
+                short: 'сен',
+            },
+            {
+                full: 'октября',
+                short: 'окт',
+            },
+            {
+                full: 'ноября',
+                short: 'ноя',
+            },
+            {
+                full: 'декабря',
+                short: 'дек',
+            },
         ];
 
         const month = date.getUTCMonth();
         const day = date.getUTCDate();
 
-        return `${day} ${months[month]}`;
+        if (short) {
+            return `${day} ${months[month].short}`;
+        }
+
+        return `${day} ${months[month].full}`;
     },
 };

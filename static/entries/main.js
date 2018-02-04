@@ -5,7 +5,7 @@ require('./../style/header.css');
 require('./../style/button.css');
 require('./../style/main-layout.css');
 require('./../style/timeline.css');
-require('./../style/day-picker.css');
+require('./../style/date-picker.css');
 require('./../style/calendar.css');
 require('./../style/icon.css');
 require('./../style/tooltip.css');
