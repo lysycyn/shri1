@@ -31,13 +31,6 @@ class DatePickerView extends View {
     }
 
     _initListeners() {
-<<<<<<< HEAD
-        this._addEventListener('.js-previous-day', 'click', () => {
-            this._dispatcher.trigger('date-picker-view:previous-day');
-        });
-
-        this._addEventListener('.js-next-day', 'click', () => {
-=======
         const previousDayElement = document.querySelector('.js-previous-day');
         const nextDayElement = document.querySelector('.js-next-day');
 
@@ -46,7 +39,6 @@ class DatePickerView extends View {
         });
 
         nextDayElement.addEventListener('click', () => {
->>>>>>> 9f920d48d477d88fbaf76b3ff687006fa1243d2d
             this._dispatcher.trigger('date-picker-view:next-day');
         });
     }
