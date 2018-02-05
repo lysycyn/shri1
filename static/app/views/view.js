@@ -21,9 +21,6 @@ class View {
         this._model = model;
     }
 
-    /**
-     * Abstract Interface. Will be implemented in subclasses
-     */
     _addEventListener(selector, event, callback) {
         document.querySelectorAll(selector).forEach((element) => {
             element.addEventListener(event, callback);
