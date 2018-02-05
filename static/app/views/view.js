@@ -24,9 +24,16 @@ class View {
     /**
      * Abstract Interface. Will be implemented in subclasses
      */
-    _initListeners() {
-
+    _addEventListener(selector, event, callback) {
+        document.querySelectorAll(selector).forEach((element) => {
+            element.addEventListener(event, callback);
+        });
     }
+
+    /**
+     * Abstract Interface. Will be implemented in subclasses
+     */
+    _initListeners() {}
 
     render() {
         this._container.innerHTML = this._template(this._model);

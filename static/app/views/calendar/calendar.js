@@ -3,8 +3,7 @@ const template = require('./calendar.mustache');
 
 const utils = require('../../utils');
 
-const CALENDAR_TIMLINE_MINUTES = 900;
-const ONE_MINUTE_LENGTH_PERCENTS = 100 / CALENDAR_TIMLINE_MINUTES;
+const { ONE_MINUTE_LENGTH_PERCENTS } = require('../../constants');
 
 /**
  * Class representing a Calendar View
@@ -18,10 +17,6 @@ class CalendarView extends View {
      */
     constructor(container, model) {
         super(template, container, model);
-    }
-
-    update(model) {
-        super.update(model);
 
         this._model.rooms = this._model.rooms.map((room) => {
             const roomExtended = Object.assign(room);
@@ -65,10 +60,41 @@ class CalendarView extends View {
         });
     }
 
-    toggleTooltip() {
-      document.querySelectorAll('.js-tooltip-trigger').addEventListener('click', () => {
+    /**
+     * Hide toolip on click
+     */
+    hideTooltip() {
+        const tooltipVisible = document.querySelector('.tooltip_visible');
 
-      });
+        if (tooltipVisible) {
+            tooltipVisible.classList.remove('tooltip_visible');
+        }
+    }
+
+    /**
+     * Toggle Tooltip window on click
+     * @param {Object} event - event
+     */
+    toggleTooltip(event) {
+        event.stopPropagation();
+
+        if (!event.target.matches('.js-tooltip-trigger')) {
+            return;
+        }
+
+        this.hideTooltip();
+
+        event.target.querySelector('.tooltip').classList.add('tooltip_visible');
+    }
+
+    _initListeners() {
+        this._addEventListener('.js-tooltip-trigger', 'click', (event) => {
+            this.toggleTooltip(event);
+        });
+
+        this._addEventListener('body', 'click', (event) => {
+            this.hideTooltip(event);
+        });
     }
 }
 

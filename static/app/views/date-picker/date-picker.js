@@ -25,15 +25,12 @@ class DatePickerView extends View {
     }
 
     _initListeners() {
-        const previousDayElement = document.querySelector('.js-previous-day');
-        const nextDayElement = document.querySelector('.js-next-day');
-
-        previousDayElement.addEventListener('click', () => {
-            this._dispatcher.trigger('day-picker-view:previous-day');
+        this._addEventListener('.js-previous-day', 'click', () => {
+            this._dispatcher.trigger('date-picker-view:previous-day');
         });
 
-        nextDayElement.addEventListener('click', () => {
-            this._dispatcher.trigger('day-picker-view:next-day');
+        this._addEventListener('.js-next-day', 'click', () => {
+            this._dispatcher.trigger('date-picker-view:next-day');
         });
     }
 }
