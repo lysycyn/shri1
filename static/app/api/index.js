@@ -68,4 +68,6 @@ class API {
     }
 }
 
-module.exports = API;
+const api = new API();
+
+module.exports = api;

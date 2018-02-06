@@ -15,10 +15,14 @@ class DatePickerController extends Controller {
     _initListeners() {
         this._dispatcher.on('date-picker-view:next-day', () => {
             this._nextDay();
+
+            this._dispatcher.trigger('date-picker:date-changed', this._model.currentDay);
         });
 
         this._dispatcher.on('date-picker-view:previous-day', () => {
             this._previousDay();
+
+            this._dispatcher.trigger('date-picker:date-changed', this._model.currentDay);
         });
     }
 

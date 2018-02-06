@@ -6,7 +6,9 @@ const TimelineView = require('../views/timeline/timeline');
 class TimelineController extends Controller {
     constructor(container, data) {
         super(TimelineModel, TimelineView, container, data);
+
         setInterval(() => this.setTime(), 60000);
+
         this.renderView();
     }
 

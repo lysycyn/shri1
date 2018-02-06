@@ -1,9 +1,7 @@
-const API = require('./api');
+const api = require('./api');
 const Mediator = require('./mediator');
 
 (() => {
-    const api = new API();
-
     Promise.all([
         api.fetchRooms(),
         api.fetchEvents(new Date()),

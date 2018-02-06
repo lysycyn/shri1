@@ -18,6 +18,12 @@ class CalendarView extends View {
     constructor(container, model) {
         super(template, container, model);
 
+        this.update(model);
+    }
+
+    update(model) {
+        super.update(model);
+
         this._model.rooms = this._model.rooms.map((room) => {
             const roomExtended = Object.assign(room);
 

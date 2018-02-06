@@ -13,11 +13,12 @@ class HeaderView extends View {
      */
     constructor(container, model) {
         super(template, container, model);
+
+        this.update(model);
     }
 
     _initListeners() {
         this._addEventListener('.js-create-event', 'click', () => {
-            console.log(1);
             this._dispatcher.trigger('header-view:create-event');
         });
     }

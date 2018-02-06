@@ -11,6 +11,13 @@ class CalendarController extends Controller {
         this._initListeners();
     }
 
+    updateCalendar(data) {
+        this._model.update(data);
+
+        this.updateViewByModel();
+        this.renderView();
+    }
+
     _initListeners() {
         this._dispatcher.on('calendar-view:edit-event', (id) => {
             const event = this._model.findEventById(id);
