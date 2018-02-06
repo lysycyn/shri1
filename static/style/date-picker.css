@@ -10,6 +10,7 @@
 
   font-family: $font;
   font-size: 15px;
+  font-weight: 500;
   line-height: 18px;
 
   @media screen and (max-width: $max-sm) {
