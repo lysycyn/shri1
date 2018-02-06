@@ -1,10 +1,4 @@
 <div class="calendar">
-    <div class="calendar__row calendar__row_header">
-        <div class="calendar__header js-layout-timeline">
-
-        </div>
-    </div>
-
     {{#rooms}}
         {{#room}}
             <div class="calendar__row">
@@ -18,7 +12,7 @@
                             <div class="tooltip">
                                 <span class="tooltip__arrow">&nbsp;</span>
                                 <span class="tooltip__edit">
-                                    <button class="btn btn_round btn_grey" data-event-id="{{id}}">
+                                    <button class="btn btn_round btn_grey js-event-edit" data-event-id="{{id}}">
                                         <span class="btn__icon">
                                             <i class="icon icon_edit">&nbsp;</i>
                                         </span>

@@ -1,0 +1,64 @@
+<div class="form js-form">
+  <div class="form__row">
+    <div class="form__container">
+      <div class="form__title">Редактирование встречи</div>
+      <div class="form__close">
+        <button class="btn btn_round btn_grey g-hide-mobile js-form-close">
+          <span class="btn__icon">
+            <i class="icon icon_close">&nbsp;</i>
+          </span>
+        </button>
+      </div>
+      <div class="form__field form__field_lg">
+        <div class="form__label">Тема</div>
+        <input type="text" class="form__input input" placeholder="О чём будем говорить?">
+      </div>
+      <div class="form__field form__field_md">
+        <div class="form__label">Дата<span class="g-hide-desk"> и время</span></div>
+        <input type="text" class="form__input input form__input_date">
+        <span class="form__input-icon">
+          <i class="icon icon_calendar">&nbsp;</i>
+        </span>
+      </div>
+      <div class="form__field form__field_sm">
+        <div class="form__label g-hide-mobile">Начало</div>
+        <input type="text" class="form__input input">
+      </div>
+      <i class="form__dash">&mdash;</i>
+      <div class="form__field form__field_sm">
+        <div class="form__label g-hide-mobile">Конец</div>
+        <input type="text" class="form__input input">
+      </div>
+    </div>
+  </div>
+  <div class="form__row">
+    <div class="form__container">
+      <div class="form__field form__field_lg">
+        <div class="form__label">Участники</div>
+        <div class="dropdown">
+          <input type="text" class="form__input input" placeholder="Например, Тор Одинович">
+          <div class="dropdown__list">
+
+          </div>
+        </div>
+        <div class="form__participant-list">
+
+        </div>
+      </div>
+      <div class="form__field form__field_lg form__field_no-margin">
+        <div class="form__label">Ваша переговорка</div>
+        <div class="form__room-list">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="form__row form__row_no-padding g-hide-desk g-align-center">
+    <button class="btn btn_primary btn_color-red btn_transparent">Удалить встречу</button>
+  </div>
+  <div class="form__footer">
+    <button class="form__btn btn btn_primary btn_grey">Отмена</button>
+    <button class="form__btn btn btn_primary btn_grey g-hide-mobile">Удалить встречу</button>
+    <button class="form__btn btn btn_primary btn_blue">Сохранить</button>
+  </div>
+</div>

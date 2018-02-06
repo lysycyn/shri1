@@ -3,11 +3,15 @@ const dispatcher = require('./dispatcher');
 const CalendarController = require('./controllers/calendar');
 const TimelineController = require('./controllers/timeline');
 const DatePickerController = require('./controllers/date-picker');
+const FormController = require('./controllers/form');
+const HeaderController = require('./controllers/header');
 
 const LAYOUT_CONTAINERS = {
     calendar: '.js-layout-calendar',
     dayPicker: '.js-layout-date-picker',
     timeline: '.js-layout-timeline',
+    form: '.js-layout-form',
+    header: '.js-layout-header',
 };
 
 class Mediator {
@@ -16,23 +20,39 @@ class Mediator {
 
         this._dispatcher = dispatcher;
 
-        const calendarElems = document.querySelectorAll(LAYOUT_CONTAINERS.calendar);
-        const dayPickerElems = document.querySelectorAll(LAYOUT_CONTAINERS.dayPicker);
+        const calendarEl = document.querySelectorAll(LAYOUT_CONTAINERS.calendar);
+        const dayPickerEl = document.querySelectorAll(LAYOUT_CONTAINERS.dayPicker);
         const timelineElems = document.querySelectorAll(LAYOUT_CONTAINERS.timeline);
+        const formEl = document.querySelectorAll(LAYOUT_CONTAINERS.form);
+        const headerEl = document.querySelectorAll(LAYOUT_CONTAINERS.header);
 
-        this._calendarController = new CalendarController(calendarElems, {
+        this._calendarController = new CalendarController(calendarEl, {
             rooms,
             events,
         });
 
-        this._datePickerController = new DatePickerController(dayPickerElems, {});
+        this._datePickerController = new DatePickerController(dayPickerEl, {});
         this._timelineController = new TimelineController(timelineElems, {});
+        this._formController = new FormController(formEl, {});
+        this._headerController = new HeaderController(headerEl, {});
 
         this.initListeners();
     }
 
     initListeners() {
-        this._dispatcher.on('something', () => {});
+        this._dispatcher.on('calendar-controller:edit-event', (event) => {
+            this._formController.showForm(event);
+            this._headerController.toggleVisibleBtn();
+        });
+
+        this._dispatcher.on('header-view:create-event', () => {
+            this._headerController.toggleVisibleBtn();
+            this._formController.showForm();
+        });
+
+        this._dispatcher.on('form-view:form-close', () => {
+            this._headerController.toggleVisibleBtn();
+        });
     }
 }
 

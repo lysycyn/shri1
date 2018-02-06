@@ -95,6 +95,13 @@ class CalendarView extends View {
         this._addEventListener('body', 'click', (event) => {
             this.hideTooltip(event);
         });
+
+        this._addEventListener('.js-event-edit', 'click', (e) => {
+            this._dispatcher.trigger(
+                'calendar-view:edit-event',
+                e.target.attributes['data-event-id'].value,
+            );
+        });
     }
 }
 

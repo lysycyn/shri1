@@ -1,4 +1,5 @@
 const dispatcher = require('../dispatcher');
+const _ = require('lodash');
 
 class View {
     /**
@@ -18,7 +19,7 @@ class View {
     }
 
     update(model) {
-        this._model = model;
+        this._model = _.cloneDeep(model);
     }
 
     _addEventListener(selector, event, callback) {

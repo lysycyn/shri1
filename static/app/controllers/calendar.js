@@ -8,6 +8,15 @@ class CalendarController extends Controller {
         super(CalendarModel, CalendarView, container, data);
 
         this.renderView();
+        this._initListeners();
+    }
+
+    _initListeners() {
+        this._dispatcher.on('calendar-view:edit-event', (id) => {
+            const event = this._model.findEventById(id);
+
+            this._dispatcher.trigger('calendar-controller:edit-event', event);
+        });
     }
 }
 
