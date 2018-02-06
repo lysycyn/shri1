@@ -50,6 +50,7 @@ module.exports = `
     user(id: ID!): User
     users: [User]
     event(id: ID!): Event
+    eventsByDate(date: Date!): [Event]
     events: [Event]
     room(id: ID!): Room
     rooms: [Room]

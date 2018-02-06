@@ -9,13 +9,11 @@ class View {
      * @param {Object} model - Model to represent
      * @param {Object} container - Container to render in
      */
-    constructor(template, container, model) {
+    constructor(template, container) {
         this._dispatcher = dispatcher;
 
         this._template = template;
         this._container = container;
-
-        this.update(model);
     }
 
     update(model) {

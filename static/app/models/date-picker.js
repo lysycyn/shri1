@@ -14,6 +14,10 @@ class DatePickerModel extends Model {
         this._data.current = new Date();
     }
 
+    get currentDay() {
+        return this._data.current;
+    }
+
     /**
      * Increment day in label.
      */

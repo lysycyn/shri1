@@ -9,6 +9,7 @@ class Controller {
         this._model = new ModelClass(data);
 
         this._views = [];
+
         for (let i = 0; i < containers.length; i++) {
             this._views.push(new ViewClass(containers[i], this._model.data));
         }

@@ -1,5 +1,7 @@
 const dispatcher = require('./dispatcher');
 
+const api = require('./api');
+
 const CalendarController = require('./controllers/calendar');
 const TimelineController = require('./controllers/timeline');
 const DatePickerController = require('./controllers/date-picker');
@@ -19,6 +21,8 @@ class Mediator {
         const { rooms, events } = appData;
 
         this._dispatcher = dispatcher;
+
+        this._api = api;
 
         const calendarEl = document.querySelectorAll(LAYOUT_CONTAINERS.calendar);
         const dayPickerEl = document.querySelectorAll(LAYOUT_CONTAINERS.dayPicker);
@@ -52,6 +56,17 @@ class Mediator {
 
         this._dispatcher.on('form-view:form-close', () => {
             this._headerController.toggleVisibleBtn();
+        });
+
+        this._dispatcher.on('date-picker:date-changed', (newDate) => {
+            Promise.all([
+                this._api.fetchRooms(),
+                this._api.fetchEvents(newDate),
+            ]).then((results) => {
+                const data = results.reduce((prev, curr) => Object.assign(prev, curr), {});
+
+                this._calendarController.updateCalendar(data);
+            });
         });
     }
 }

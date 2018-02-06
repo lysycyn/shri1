@@ -1,11 +1,6 @@
-const REQUESTS = require('./requests.js');
-
 const HOST = 'http://localhost:3000';
 
 class API {
-    constructor() {
-    }
-
     _sendGraphQLRequest(query) {
         return new Promise(function (resolve, reject) {
             let xhr = new XMLHttpRequest();
@@ -38,13 +33,41 @@ class API {
         });
     }
 
-    fetchEvents() {
-        return this._sendGraphQLRequest(REQUESTS.events);
+    fetchEvents(date) {
+        return this._sendGraphQLRequest(`{
+            events: eventsByDate(date: "${date.toISOString()}") {
+                id
+                title
+                dateStart
+                dateEnd
+                users {
+                    id
+                    login
+                    homeFloor
+                    avatarUrl
+                }
+                room {
+                    id
+                    title
+                    capacity
+                    floor
+                }
+            }
+        }`);
     }
 
     fetchRooms() {
-        return this._sendGraphQLRequest(REQUESTS.rooms);
+        return this._sendGraphQLRequest(`{
+            rooms {
+                id
+                title
+                capacity
+                floor
+            }
+        }`);
     }
 }
 
-module.exports = API;
+const api = new API();
+
+module.exports = api;

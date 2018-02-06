@@ -11,15 +11,19 @@ class CalendarModel extends Model {
     constructor(data) {
         super();
 
-        const { events, rooms } = data;
+        this.update(data);
+    }
 
-        this._data.rooms = rooms.reduce((calendar, room) => {
+    update(data) {
+        super.update(data);
+
+        this._data.rooms = this._data.rooms.reduce((calendar, room) => {
             const calendarRow = {
                 room,
                 events: [],
             };
 
-            calendarRow.events = events
+            calendarRow.events = this._data.events
                 .filter(event => event.room.id === room.id)
                 .map((event) => {
                     const eventExtended = Object.assign(event);

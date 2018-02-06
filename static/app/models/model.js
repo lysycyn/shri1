@@ -1,4 +1,5 @@
 const dispatcher = require('../dispatcher');
+const _ = require('lodash');
 
 class Model {
     constructor() {
@@ -9,6 +10,10 @@ class Model {
 
     get data() {
         return this._data;
+    }
+
+    update(data) {
+        this._data = _.cloneDeep(data);
     }
 }
 

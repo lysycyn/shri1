@@ -13,6 +13,8 @@ class FormView extends View {
      */
     constructor(container, model) {
         super(template, container, model);
+
+        this.update(model);
     }
 
     toggleVisible() {

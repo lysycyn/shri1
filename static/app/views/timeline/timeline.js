@@ -19,6 +19,8 @@ class TimelineView extends View {
     constructor(container, model) {
         super(template, container, model);
         this.render();
+
+        this.update(model);
     }
 
     update(model) {

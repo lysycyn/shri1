@@ -1,12 +1,10 @@
-const API = require('./api');
+const api = require('./api');
 const Mediator = require('./mediator');
 
 (() => {
-    const api = new API();
-
     Promise.all([
         api.fetchRooms(),
-        api.fetchEvents(),
+        api.fetchEvents(new Date()),
     ]).then((results) => {
         const appData = results.reduce(
             (prev, curr) => Object.assign(prev, curr),
