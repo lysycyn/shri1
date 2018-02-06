@@ -7,7 +7,7 @@ class DatePickerController extends Controller {
     constructor(container, data) {
         super(DatePickerModel, DatePickerView, container, data);
 
-        this._view.render();
+        this.renderView();
 
         this._initListeners();
     }

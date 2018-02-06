@@ -5,7 +5,7 @@ const TimelineController = require('./controllers/timeline');
 const DatePickerController = require('./controllers/date-picker');
 
 const LAYOUT_CONTAINERS = {
-    calendar: '.js-layout-body',
+    calendar: '.js-layout-calendar',
     dayPicker: '.js-layout-date-picker',
     timeline: '.js-layout-timeline',
 };
@@ -16,17 +16,17 @@ class Mediator {
 
         this._dispatcher = dispatcher;
 
-        const calendarEl = document.querySelector(LAYOUT_CONTAINERS.calendar);
-        const dayPickerEl = document.querySelector(LAYOUT_CONTAINERS.dayPicker);
-        const timelineEl = document.querySelector(LAYOUT_CONTAINERS.timeline);
+        const calendarElems = document.querySelectorAll(LAYOUT_CONTAINERS.calendar);
+        const dayPickerElems = document.querySelectorAll(LAYOUT_CONTAINERS.dayPicker);
+        const timelineElems = document.querySelectorAll(LAYOUT_CONTAINERS.timeline);
 
-        this._calendarController = new CalendarController(calendarEl, {
+        this._calendarController = new CalendarController(calendarElems, {
             rooms,
             events,
         });
 
-        this._datePickerController = new DatePickerController(dayPickerEl, {});
-        this._timelineController = new TimelineController(timelineEl, {});
+        this._datePickerController = new DatePickerController(dayPickerElems, {});
+        this._timelineController = new TimelineController(timelineElems, {});
 
         this.initListeners();
     }

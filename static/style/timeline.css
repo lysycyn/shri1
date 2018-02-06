@@ -24,6 +24,10 @@
     vertical-align: middle;
 
     color: #252525;
+
+    @media screen and (max-width: $max-sm) {
+      padding: 10px 0;
+    }
   }
 
       .timeline__hour_past {
@@ -48,10 +52,11 @@
 
     .timeline__current {
         position: absolute;
+        top: 12px;
         z-index: 2;
 
         width: 49px;
-        margin: 13px 0;
+
         padding: 4px 0;
 
         font-size: 11px;
@@ -60,6 +65,10 @@
         color: #ffffff;
         border-radius: 8px;
         background: #007dff;
+
+        @media screen and (max-width: $max-sm) {
+          top: 7px;
+        }
     }
 
         .timeline__current:before {

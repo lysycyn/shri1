@@ -16,3 +16,7 @@ $transition: 0.6s;
 $gutter: 16px;
 
 $font: Helvetica Neue, Open Sans;
+
+$z-top: 3;
+$z-middle: 2;
+$z-bottom: 1;

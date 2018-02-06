@@ -2,7 +2,8 @@
 
 .tooltip {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
+  cursor: default;
 
   visibility: hidden;
   opacity: 0;

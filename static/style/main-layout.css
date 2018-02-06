@@ -7,6 +7,7 @@
 
   @media screen and (max-width: $max-sm) {
     padding-top: 56px;
+    overflow: scroll;
   }
 }
 
@@ -30,7 +31,7 @@
 
       display: block;
 
-      height: 56px;
+      height: 89px;
     }
   }
 
@@ -48,28 +49,29 @@
 
   .main-layout__timeline {
     display: table-cell;
-    display: none;
 
     width: 100%;
-    margin-left: 180px;
+    margin-left: 0;
 
-    @media screen and (min-width: $min-lg) {
-      display: table-cell;
+    vertical-align: middle;
 
-      width: 100%;
+
+    @media screen and (max-width: $max-sm) {
+      display: block;
+      width: 1221px;
+      padding-left: 181px;
       margin-left: 0;
-
-      vertical-align: middle;
     }
   }
 
   .main-layout__body {
+    overflow: scroll;
     width: 100%;
 
     background: $color-white;
 
-    @media screen and (max-width: $min-lg) {
-      overflow: scroll;
+    @media screen and (max-width: $max-sm) {
+      width: 1221px;
     }
   }
 
