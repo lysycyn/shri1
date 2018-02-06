@@ -86,7 +86,7 @@ module.exports = {
         return `${hours}:${minutes}`;
     },
 
-    getDateText(date, short) {
+    getDateText(date, isShort, isYear) {
         const months = [
             {
                 full: 'января',
@@ -140,9 +140,14 @@ module.exports = {
 
         const month = date.getUTCMonth();
         const day = date.getUTCDate();
+        const year = date.getFullYear();
 
-        if (short) {
+        if (isShort) {
             return `${day} ${months[month].short}`;
+        }
+
+        if (isYear) {
+            return `${day} ${months[month].full}, ${year}`;
         }
 
         return `${day} ${months[month].full}`;

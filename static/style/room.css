@@ -86,8 +86,6 @@
   display: none;
   float: right;
 
-  margin-top: 3px;
-
   size: 12px;
 
   @media screen and (min-width: $min-lg) {
