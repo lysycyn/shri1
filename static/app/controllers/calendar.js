@@ -7,7 +7,7 @@ class CalendarController extends Controller {
     constructor(container, data) {
         super(CalendarModel, CalendarView, container, data);
 
-        this._view.render();
+        this.renderView();
     }
 }
 

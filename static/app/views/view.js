@@ -27,9 +27,6 @@ class View {
         });
     }
 
-    /**
-     * Abstract Interface. Will be implemented in subclasses
-     */
     _initListeners() {}
 
     render() {
