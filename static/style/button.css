@@ -10,7 +10,7 @@ btn:hover {
 
   .btn__icon {
     transition: opacity $transition;
-
+    pointer-events: none;
     opacity: 0.2;
   }
 

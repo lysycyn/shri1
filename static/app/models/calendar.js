@@ -35,6 +35,16 @@ class CalendarModel extends Model {
             return calendar;
         }, []);
     }
+
+    findEventById(id) {
+        return this._data.rooms
+            .reduce((eventsArr, room) => {
+                eventsArr.push(...room.events);
+
+                return eventsArr;
+            }, [])
+            .find(event => event.id === id);
+    }
 }
 
 module.exports = CalendarModel;

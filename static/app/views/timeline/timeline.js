@@ -28,7 +28,7 @@ class TimelineView extends View {
 
         let offset = 0;
         if (date.getHours() >= 8 || date.getHours() < 23) {
-            const offsetMinutes = ((date.getHours() - 8) * 60) + date.getMinutes(); // поменять на 8
+            const offsetMinutes = ((date.getHours() - 8) * 60) + date.getMinutes();
             // 3.125% - первый отступ до 8 утра, 24px - середина currentTime
             offset = `calc(3.125% + ${(offsetMinutes * ONE_MINUTE_LENGTH_PERCENTS).toFixed(3)}% - 24px)`;
         }

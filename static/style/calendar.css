@@ -11,8 +11,7 @@
   background-color: $color-grey-bg;
 
   @media screen and (max-width: $max-sm) {
-    padding-top: 32px;
-    width: 1000px;
+    width: 100%;
   }
 }
 
