@@ -2,7 +2,7 @@ const HOST = 'http://localhost:3000';
 
 class API {
     _sendGraphQLRequest(query) {
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             let xhr = new XMLHttpRequest();
 
             xhr.responseType = 'json';

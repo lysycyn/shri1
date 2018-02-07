@@ -18,6 +18,10 @@ class CalendarController extends Controller {
         this.renderView();
     }
 
+    deleteEventById(id) {
+        console.log(`DELETE EVENT ${id}`);
+    }
+
     _initListeners() {
         this._dispatcher.on('calendar-view:edit-event', (id) => {
             const event = this._model.findEventById(id);

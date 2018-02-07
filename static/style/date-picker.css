@@ -48,7 +48,7 @@
     top: 11px;
     left: 16px;
 
-    @media screen and (min-width: $min-lg) {
+    @media screen and (max-width: $max-sm) {
       top: 12px;
     }
   }

@@ -17,7 +17,7 @@ class CalendarModel extends Model {
     update(data) {
         super.update(data);
 
-        this._data.rooms = this._data.rooms.reduce((calendar, room) => {
+        this._data.rows = this._data.rooms.reduce((calendar, room) => {
             const calendarRow = {
                 room,
                 events: [],
@@ -41,9 +41,9 @@ class CalendarModel extends Model {
     }
 
     findEventById(id) {
-        return this._data.rooms
-            .reduce((eventsArr, room) => {
-                eventsArr.push(...room.events);
+        return this._data.rows
+            .reduce((eventsArr, row) => {
+                eventsArr.push(...row.events);
 
                 return eventsArr;
             }, [])

@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 const View = require('../view');
 const template = require('./calendar.mustache');
 
@@ -24,10 +26,15 @@ class CalendarView extends View {
     update(model) {
         super.update(model);
 
-        this._model.rooms = this._model.rooms.map((room) => {
-            const roomExtended = Object.assign(room);
+        const rows = this._model.rows.map((row) => {
+            const rowExtended = Object.assign(row);
+            rowExtended.roomCapacity = `${row.room.capacity} ${utils.plural(row.room.capacity, [
+                'человек',
+                'человека',
+                'человек',
+            ])}`;
 
-            roomExtended.events = roomExtended.events.map((event) => {
+            rowExtended.events = rowExtended.events.map((event) => {
                 const { dateEnd, dateStart, users } = event;
 
                 const durationMinutes = (dateEnd - dateStart) / 1000 / 60;
@@ -40,6 +47,8 @@ class CalendarView extends View {
                 const startTimeText = utils.getTimeText(dateStart);
                 const endTimeText = utils.getTimeText(dateEnd);
                 const participantName = users[0].login;
+                const participantAvatar = users[0].avatarUrl;
+
 
                 const participantsPlural = utils.plural(users.length - 1, [
                     'участник',
@@ -58,12 +67,29 @@ class CalendarView extends View {
                     startTimeText,
                     endTimeText,
                     participantName,
+                    participantAvatar,
                     participantsCountText,
                 };
             });
 
-            return roomExtended;
+            return rowExtended;
         });
+
+        const floors = [];
+
+        rows.map((row) => {
+            if (floors.find(floor => floor.number === row.room.floor)) {
+                floors.find(floor => floor.number === row.room.floor).rows.push(row);
+            } else {
+                floors.push({
+                    number: row.room.floor,
+                    rows: [],
+                });
+                floors.find(floor => floor.number === row.room.floor).rows.push(row);
+            }
+        });
+
+        this._model.floors = floors.sort((a, b) => a.floor > b.floor);
     }
 
     /**
@@ -78,7 +104,7 @@ class CalendarView extends View {
     }
 
     /**
-     * Toggle Tooltip window on click
+     * Toggle Tooltip on click
      * @param {Object} event - event
      */
     toggleTooltip(event) {

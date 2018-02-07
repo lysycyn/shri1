@@ -13,7 +13,7 @@
 
   .main-layout__top {
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     top: 71px;
 
     display: table;
@@ -26,7 +26,6 @@
     background: $color-white;
 
     @media screen and (max-width: $max-sm) {
-      z-index: 2;
       top: 63px;
 
       display: block;
@@ -68,6 +67,7 @@
       width: 1221px;
       padding-left: 181px;
       border-bottom: 1px solid $color-grey-bg;
+      box-sizing: border-box;
     }
   }
 

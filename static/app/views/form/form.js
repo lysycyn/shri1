@@ -19,6 +19,8 @@ class FormView extends View {
 
     toggleVisible() {
         const form = document.querySelector('.js-form');
+        const body = document.querySelector('body');
+        body.style.overflow = body.style.overflow === 'hidden' ? 'auto' : 'hidden';
         if (form.classList.contains('form_visible')) {
             form.classList.remove('form_visible');
         } else {
@@ -30,6 +32,21 @@ class FormView extends View {
         this._addEventListener('.js-form-close', 'click', () => {
             this.toggleVisible();
             this._dispatcher.trigger('form-view:form-close');
+        });
+
+        this._addEventListener('.js-delete-event-btn', 'click', (event) => {
+            this._dispatcher.trigger(
+                'form-view:delete-event-btn',
+                event.target.attributes['data-event-id'].value,
+            );
+        });
+
+        this._addEventListener('.js-save-event', 'click', () => {
+            this._dispatcher.trigger('form-view:save-event');
+        });
+
+        this._addEventListener('.js-create-event', 'click', () => {
+            this._dispatcher.trigger('form-view:create-event');
         });
     }
 }

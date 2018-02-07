@@ -7,6 +7,7 @@ const TimelineController = require('./controllers/timeline');
 const DatePickerController = require('./controllers/date-picker');
 const FormController = require('./controllers/form');
 const HeaderController = require('./controllers/header');
+const ModalController = require('./controllers/modal');
 
 const LAYOUT_CONTAINERS = {
     calendar: '.js-layout-calendar',
@@ -14,6 +15,7 @@ const LAYOUT_CONTAINERS = {
     timeline: '.js-layout-timeline',
     form: '.js-layout-form',
     header: '.js-layout-header',
+    modal: '.js-layout-modal',
 };
 
 class Mediator {
@@ -29,6 +31,7 @@ class Mediator {
         const timelineElems = document.querySelectorAll(LAYOUT_CONTAINERS.timeline);
         const formEl = document.querySelectorAll(LAYOUT_CONTAINERS.form);
         const headerEl = document.querySelectorAll(LAYOUT_CONTAINERS.header);
+        const modalEl = document.querySelectorAll(LAYOUT_CONTAINERS.modal);
 
         this._calendarController = new CalendarController(calendarEl, {
             rooms,
@@ -39,6 +42,7 @@ class Mediator {
         this._timelineController = new TimelineController(timelineElems, {});
         this._formController = new FormController(formEl, {});
         this._headerController = new HeaderController(headerEl, {});
+        this._modalController = new ModalController(modalEl, {});
 
         this.initListeners();
     }
@@ -67,6 +71,22 @@ class Mediator {
 
                 this._calendarController.updateCalendar(data);
             });
+        });
+
+        this._dispatcher.on('form-view:delete-event-btn', (id) => {
+            this._modalController.showDeleteMessage(id);
+        });
+
+        this._dispatcher.on('modal-view:delete-event', (id) => {
+            this._calendarController.deleteEventById(id);
+            this._modalController.toggleVisible();
+            this._formController.toggleVisible();
+            this._headerController.toggleVisibleBtn();
+        });
+
+        this._dispatcher.on('form-view:save-event', (id) => {
+            
+            this._modalController.showSuccessMessage(id);
         });
     }
 }

@@ -3,14 +3,17 @@
 .form {
   display: none;
   width: 100%;
+  position: fixed;
   height: calc(100vh - 71px);
-  padding-top: 4px;
-  padding-bottom: 80px;
+  top: 71px;
+  padding-top: 7px;
+  padding-bottom: 76px;
   background: $color-white;
+  overflow: scroll;
 
-  @media screen and (min-width: $min-lg) {
-    padding-top: 7px;
-    padding-bottom: 76px;
+  @media screen and (min-width: $max-sm) {
+    padding-top: 4px;
+    padding-bottom: 80px;
   }
 }
 

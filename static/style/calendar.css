@@ -53,18 +53,10 @@
     color: $color-blue-text-pressed;
   }
 
-    .calendar__room_disabled,
-    .calendar__room_disabled:hover .calendar__name,
-    .calendar__room_disabled:active .calendar__name {
-      cursor: default;
-
-      color: $color-grey-dark;
-    }
-
-    .calendar__row_floor .calendar__room {
-      cursor: default;
-      vertical-align: bottom;
-    }
+  .calendar__name_floor:hover,
+  .calendar__name_floor:active {
+    color: $color-grey-dark;
+  }
 
     .calendar__row_header {
       position: fixed;
@@ -74,7 +66,6 @@
         display: none;
       }
     }
-
 
   .calendar__timeline {
     position: relative;
@@ -104,14 +95,15 @@
       letter-spacing: 0.4px;
       text-transform: uppercase;
 
-      color: $color-grey-dark;
-
-      font-size: 11px;
-      font-weight: 700;
-
       @media screen and (max-width: $max-sm) {
         height: 45px;
       }
+    }
+
+    .calendar__row_floor .calendar__name {
+      color: $color-grey-dark;
+      font-size: 11px;
+      font-weight: 700;
     }
 
     .calendar__row_floor:nth-child(2) .calendar__room {
@@ -144,9 +136,28 @@
     line-height: 17px;
   }
 
-    .calendar__room_active .calendar__name {
-      color: $color-blue-text-hover;
+  .calendar__room_active .calendar__name {
+    color: $color-blue-text-hover;
+  }
+
+  .calendar__room_disabled,
+  .calendar__room_disabled:hover .calendar__name,
+  .calendar__room_disabled:active .calendar__name {
+    cursor: default;
+
+    color: $color-grey-dark;
+  }
+
+  .calendar__row_floor .calendar__room {
+    cursor: default;
+    vertical-align: bottom;
+    color: $color-grey-dark;
+
+    @media screen and (max-width: $max-sm) {
+      background-color: $color-grey-bg;
+      border-right: none;
     }
+  }
 
   .calendar__capacity {
     font-size: 13px;
@@ -195,8 +206,19 @@
 
     border-radius: 2px;
     background: rgba(213, 223, 233, 1);
+    transition: $transition;
   }
 
     .calendar__meetup:nth-child(2n) {
       background: rgba(213, 223, 233, 0.7);
+    }
+
+    .calendar__meetup:hover {
+      background-color: #98A9B9;
+      transition: $transition;
+    }
+
+    .calendar__meetup:active {
+      background-color: #8594A1;
+      transition: $transition;
     }

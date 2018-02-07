@@ -1,12 +1,11 @@
 @import 'var.css';
 
 .room {
+  position: relative;
   display: block;
 
   box-sizing: border-box;
   width: 100%;
-  margin-bottom: 8px;
-  padding: 13px 12px 14px;
 
   cursor: pointer;
   transition: $transition;
@@ -15,7 +14,12 @@
   background-color: $color-grey;
 
   font-family: $font;
-  font-size: 15px;
+
+
+  margin-bottom: 8px;
+  padding: 10px;
+
+  font-size: 13px;
   line-height: 17px;
 
   &:hover {
@@ -28,11 +32,11 @@
     background-color: $color-grey-pressed;
   }
 
-  @media screen and (min-width: $min-lg) {
+  @media screen and (max-width: $max-sm) {
     margin-bottom: 8px;
-    padding: 10px;
+    padding: 13px 12px 14px;
 
-    font-size: 13px;
+    font-size: 15px;
     line-height: 17px;
   }
 }
@@ -63,10 +67,10 @@
 .room__name {
   display: inline-block;
 
-  margin-left: 12px;
+  margin-left: 16px;
 
-  @media screen and (min-width: $min-lg) {
-    margin-left: 16px;
+  @media screen and (min-width: $max-sm) {
+    margin-left: 12px;
   }
 }
 
@@ -84,12 +88,13 @@
 
 .room__close {
   display: none;
-  float: right;
+  position: absolute;
+  right: 6px;
+  top: 6px;
 
-  size: 12px;
-
-  @media screen and (min-width: $min-lg) {
-    size: 10px;
+  @media screen and (max-width: $max-sm) {
+    right: 4px;
+    top: 4px;
   }
 }
 

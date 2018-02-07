@@ -13,7 +13,11 @@ class FormController extends Controller {
         this._model.update(event);
         this.updateViewByModel();
         this.renderView();
-        this._views.map(view => view.toggleVisible());
+        this.toggleVisible();
+    }
+
+    toggleVisible() {
+        this.viewToggleVisible();
     }
 }
 

@@ -53,7 +53,7 @@
     .timeline__current {
         position: absolute;
         top: 12px;
-        z-index: 2;
+        z-index: 1;
 
         width: 49px;
 

@@ -1,10 +1,17 @@
 <div class="calendar">
-    {{#rooms}}
-        {{#room}}
+    {{#floors}}
+        <div class="calendar__row calendar__row_floor">
+            <div class="calendar__room">
+                <div class="calendar__name calendar__name_floor">{{number}} этаж</div>
+            </div>
+            <div class="calendar__timeline"></div>
+        </div>
+        {{#rows}}
+          {{#room}}
             <div class="calendar__row">
                 <div class="calendar__room">
                     <div class="calendar__name">{{title}}</div>
-                    <div class="calendar__capacity">{{capacity}}</div>
+                    <div class="calendar__capacity">{{roomCapacity}}</div>
                 </div>
                 <div class="calendar__timeline js-events">
                     {{#events}}
@@ -27,7 +34,7 @@
                                 </div>
                                 <div class="tooltip__participant">
                                     <div class="short-participant">
-                                        <img class="short-participant__img" src="../assets/dart.jpg" alt="">
+                                        <img class="short-participant__img" src="{{participantAvatar}}" alt="">
                                         <span class="shor-participant__name">{{participantName}}</span>
                                     </div>
                                 </div>
@@ -39,6 +46,7 @@
                     {{/events}}
                 </div>
             </div>
-        {{/room}}
-    {{/rooms}}
+          {{/room}}
+        {{/rows}}
+    {{/floors}}
   </div>

@@ -17,6 +17,7 @@ class FormModel extends Model {
             this._data = {};
             return;
         }
+        this._data.id = event.id;
         this._data.title = event.title;
         this._data.users = _.cloneDeep(event.users);
         this._data.room = _.cloneDeep(event.room);

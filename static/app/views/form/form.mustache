@@ -1,9 +1,9 @@
-<div class="form js-form">
+<form class="form js-form">
   <div class="form__row">
     <div class="form__container">
       <div class="form__title">{{#title}}Редактирование встречи{{/title}}{{^title}}Новая встреча{{/title}}</div>
       <div class="form__close">
-        <button class="btn btn_round btn_grey g-hide-mobile js-form-close">
+        <button class="btn btn_round btn_grey g-hide-mobile js-form-close" type="button">
           <span class="btn__icon">
             <i class="icon icon_close">&nbsp;</i>
           </span>
@@ -46,7 +46,7 @@
             <div class="participant">
               <img class="participant__img" src="{{avatarUrl}}"/>
               <span class="participant__name">{{login}}</span>
-              <button class="btn btn_round participant__close js-delete-user-from-event">
+              <button class="btn btn_round participant__close js-delete-user-from-event" type="button">
                 <span class="btn__icon">
                   <i class="icon icon_close">&nbsp;</i>
                 </span>
@@ -65,7 +65,9 @@
               <span class="room__bullet">&#8226;</span>
               <span class="room__floor">{{floor}} этаж</span>
               <span class="room__close">
-                <i class="icon icon_close-white">&nbsp;</i>
+                <button class="btn btn_round" type="button">
+                  <i class="icon icon_close-white">&nbsp;</i>
+                </button>
               </span>
             </div>
           </div>
@@ -80,12 +82,24 @@
       </div>
     </div>
   </div>
-  <div class="form__row form__row_no-padding g-hide-desk g-align-center">
-    <button class="btn btn_primary btn_color-red btn_transparent">Удалить встречу</button>
-  </div>
-  <div class="form__footer">
-    <button class="form__btn btn btn_primary btn_grey">Отмена</button>
-    <button class="form__btn btn btn_primary btn_grey g-hide-mobile">Удалить встречу</button>
-    <button class="form__btn btn btn_primary btn_blue">Сохранить</button>
-  </div>
-</div>
+  {{#title}}
+    <div class="form__row form__row_no-padding g-hide-desk g-align-center">
+      <button class="btn btn_primary btn_color-red btn_transparent js-delete-event-btn" type="button" data-event-id="{{id}}">Удалить встречу</button>
+    </div>
+    <div class="form__footer">
+      <button class="form__btn btn btn_primary btn_grey js-form-close" type="button">Отмена</button>
+      <button class="form__btn btn btn_primary btn_grey g-hide-mobile js-delete-event-btn" type="button" data-event-id="{{id}}">Удалить встречу</button>
+      <button class="form__btn btn btn_primary btn_blue js-save-event" type="submit" data-event-id="{{id}}">Сохранить</button>
+    </div>
+  {{/title}}
+  {{^title}}
+    <div class="form__footer">
+      <div class="form__disclaimer g-hide-desk">
+        Выберите переговорку
+      </div>
+      <button class="form__btn btn btn_primary btn_grey js-form-close" type="button">Отмена</button>
+      <button class="form__btn btn btn_primary btn_blue js-create-event" type="submit">Создать встречу</button>
+    </div>
+  {{/title}}
+
+</form>
