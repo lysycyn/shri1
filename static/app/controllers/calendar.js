@@ -12,8 +12,7 @@ class CalendarController extends Controller {
     }
 
     updateCalendar(data) {
-        this._model.update(data);
-
+        this.updateModel(data);
         this.updateViewByModel();
         this.renderView();
     }
@@ -22,10 +21,13 @@ class CalendarController extends Controller {
         console.log(`DELETE EVENT ${id}`);
     }
 
+    findEventById(id) {
+        return this._model.findEventById(id);
+    }
+
     _initListeners() {
-        this._dispatcher.on('calendar-view:edit-event', (id) => {
+        this._dispatcher.on('tooltip-view:edit-event', (id) => {
             const event = this._model.findEventById(id);
-            console.log(event);
             this._dispatcher.trigger('calendar-controller:edit-event', event);
         });
     }

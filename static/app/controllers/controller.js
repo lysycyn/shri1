@@ -15,6 +15,10 @@ class Controller {
         }
     }
 
+    updateModel(data) {
+        this._model.update(data);
+    }
+
     updateViewByModel() {
         this._views.map(view => view.update(this._model.data));
     }

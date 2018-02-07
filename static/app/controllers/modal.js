@@ -12,7 +12,7 @@ class ModalController extends Controller {
     }
 
     showDeleteMessage(id) {
-        this._model.update({
+        this.updateModel({
             deleteId: id,
         });
 

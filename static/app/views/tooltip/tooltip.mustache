@@ -1,0 +1,26 @@
+<div class="tooltip js-tooltip" style="top: {{top}}; left: {{left}};">
+    <span class="tooltip__arrow">&nbsp;</span>
+    <span class="tooltip__edit">
+        <button class="btn btn_round btn_grey js-event-edit" data-event-id="{{id}}">
+            <span class="btn__icon">
+                <i class="icon icon_edit">&nbsp;</i>
+            </span>
+        </button>
+    </span>
+    <div class="tooltip__title">{{title}}</div>
+    <div class="tooltip__text">
+        <span class="tooltip__date">{{dateText}}</span>
+        <span class="tooltip__time">{{startTimeText}} - {{endTimeText}}</span>
+        <span class="tooltip__bullet">&#8226;</span>
+        <span class="tooltip__room">{{room.title}}</span>
+    </div>
+    <div class="tooltip__participant">
+        <div class="short-participant">
+            <img class="short-participant__img" src="{{participantAvatar}}" alt="">
+            <span class="shor-participant__name">{{participantName}}</span>
+        </div>
+    </div>
+    <div class="tooltip__others">
+        {{participantsCountText}}
+    </div>
+</div>

@@ -2,7 +2,7 @@
 
 .tooltip {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   cursor: default;
 
   visibility: hidden;
@@ -19,11 +19,9 @@
 
   font-family: $font;
 
-  @media screen and (min-width: $min-lg) {
-    bottom: -5px;
-    right: 50%;
-    transform: translate(16px, 100%);
-    width: 338px;
+  @media screen and (max-width: $max-sm) {
+
+
   }
 }
 

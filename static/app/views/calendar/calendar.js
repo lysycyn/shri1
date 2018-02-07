@@ -35,7 +35,7 @@ class CalendarView extends View {
             ])}`;
 
             rowExtended.events = rowExtended.events.map((event) => {
-                const { dateEnd, dateStart, users } = event;
+                const { dateEnd, dateStart } = event;
 
                 const durationMinutes = (dateEnd - dateStart) / 1000 / 60;
                 const offsetMinutes = ((dateEnd.getHours() - 8) * 60) + dateEnd.getMinutes();
@@ -43,32 +43,11 @@ class CalendarView extends View {
                 const left = (offsetMinutes * ONE_MINUTE_LENGTH_PERCENTS).toFixed(3);
                 const width = (durationMinutes * ONE_MINUTE_LENGTH_PERCENTS).toFixed(3);
 
-                const dateText = utils.getDateText(dateStart);
-                const startTimeText = utils.getTimeText(dateStart);
-                const endTimeText = utils.getTimeText(dateEnd);
-                const participantName = users[0].login;
-                const participantAvatar = users[0].avatarUrl;
-
-
-                const participantsPlural = utils.plural(users.length - 1, [
-                    'участник',
-                    'участника',
-                    'участников',
-                ]);
-
-                const participantsCountText = `и ещё ${users.length - 1} ${participantsPlural}`;
-
                 return {
                     id: event.id,
                     title: event.title,
                     left,
                     width,
-                    dateText,
-                    startTimeText,
-                    endTimeText,
-                    participantName,
-                    participantAvatar,
-                    participantsCountText,
                 };
             });
 
@@ -92,47 +71,10 @@ class CalendarView extends View {
         this._model.floors = floors.sort((a, b) => a.floor > b.floor);
     }
 
-    /**
-     * Hide toolip on click
-     */
-    hideTooltip() {
-        const tooltipVisible = document.querySelector('.tooltip_visible');
-
-        if (tooltipVisible) {
-            tooltipVisible.classList.remove('tooltip_visible');
-        }
-    }
-
-    /**
-     * Toggle Tooltip on click
-     * @param {Object} event - event
-     */
-    toggleTooltip(event) {
-        event.stopPropagation();
-
-        if (!event.target.matches('.js-tooltip-trigger')) {
-            return;
-        }
-
-        this.hideTooltip();
-
-        event.target.querySelector('.tooltip').classList.add('tooltip_visible');
-    }
-
     _initListeners() {
-        this._addEventListener('.js-tooltip-trigger', 'click', (event) => {
-            this.toggleTooltip(event);
-        });
-
-        this._addEventListener('body', 'click', (event) => {
-            this.hideTooltip(event);
-        });
-
-        this._addEventListener('.js-event-edit', 'click', (e) => {
-            this._dispatcher.trigger(
-                'calendar-view:edit-event',
-                e.target.attributes['data-event-id'].value,
-            );
+        this._addEventListener('.js-tooltip-trigger', 'click', (e) => {
+            e.stopPropagation();
+            this._dispatcher.trigger('calendar-view:show-tooltip', e);
         });
     }
 }

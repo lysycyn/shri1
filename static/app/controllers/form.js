@@ -10,7 +10,7 @@ class FormController extends Controller {
     }
 
     showForm(event = null) {
-        this._model.update(event);
+        this.updateModel(event);
         this.updateViewByModel();
         this.renderView();
         this.toggleVisible();

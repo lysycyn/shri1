@@ -72,6 +72,7 @@
   }
 
   .main-layout__body {
+    position: relative;
     overflow: scroll;
     width: 100%;
 
